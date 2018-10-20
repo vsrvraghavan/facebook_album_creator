@@ -1,0 +1,31 @@
+[package]
+
+name = "rust-users"
+version = "0.0.1"
+authors = [ "Ryan Chenkie <ryanchenkie@gmail.com>" ]
+
+[dependencies]
+
+nickel = "*"
+tokio-core = "0.1"
+reqwest = "*"
+
+rustc-serialize = "0.3.24"
+
+chrono = { version = "0.4", features = ["serde"] }
+
+serde = "1.0"
+serde_derive = "1.0.78"
+
+serde_json = "1.0"
+
+job_scheduler = "*"
+
+lazy_static = "1.1.0"
+
+
+[dependencies.hyper]
+version = "0.12"
+default-features = true
+
+java-properties = "1.1.1"
