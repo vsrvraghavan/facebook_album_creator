@@ -32,12 +32,20 @@ extern crate job_scheduler;
 use app::models::{Images};
 use std::collections::HashMap;
 
-
+use std::env;
 
 
 fn main() {  
+    let args: Vec<String> = env::args().collect();
+    let mut path = String::from("/tmp/Usefile.conf");
+    if args.len() > 1 {        
+        path = args[1].to_owned();
+        println!("config file arguments : {}", path);
+    }else{
+        println!("config file path missing in arguments \n example : fb_album_creator /etc/fb_details.properties");
+    }
 
-    let path = String::from("/tmp/Usefile.conf");
+    //let path = String::from("/tmp/Usefile.conf");
     let cfg = app::util::properties::config_from_file(path);
  
     let mut server = Nickel::new();
@@ -74,9 +82,11 @@ fn main() {
         album_url.push_str("/photos/?tab=album&album_id=").to_owned();
         album_url.push_str(&album_id_clone).to_owned();//  256758501646061
         */
-
-        let mut album_url = "https://www.facebook.com/".to_owned();        
-        album_url.push_str(&*flbtls["page_name"]).to_owned();        
+        //https://www.facebook.com/pg/Sahre-Album-252369582084953/photos/?tab=album&album_id=266239830697928
+        let mut album_url = "https://www.facebook.com/pg/".to_owned();        
+        album_url.push_str(&*flbtls["page_name"]).to_owned();  
+        album_url.push_str("-").to_owned();     
+        album_url.push_str(&album_id_clone).to_owned();        
         album_url.push_str("/photos/?tab=album&album_id=").to_owned();
         //album_url.push_str(&*flbtls["page_id"]).to_owned();
         //album_url.push_str("/photos/?tab=album&album_id=").to_owned();

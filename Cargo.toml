@@ -1,8 +1,8 @@
 [package]
 
-name = "rust-users"
+name = "fb_album_creator"
 version = "0.0.1"
-authors = [ "Ryan Chenkie <ryanchenkie@gmail.com>" ]
+authors = [ "VSRV Raghava <vsrv.raghavan@gmail.com>" ]
 
 [dependencies]
 
@@ -28,4 +28,4 @@ lazy_static = "1.1.0"
 version = "0.12"
 default-features = true
 
-java-properties = "1.1.1"
+#java-properties = "1.1.1"

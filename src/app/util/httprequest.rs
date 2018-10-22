@@ -73,7 +73,7 @@ pub fn create_album(page_access_token: String) -> String{
 
     let mut map = HashMap::new();
 
-    map.insert("name", "Raga Album Rust1");
+    map.insert("name", "Raga Album Rust2");
     map.insert("message", "Album Made By Rust App");
     map.insert("access_token", &page_access_token);
 
