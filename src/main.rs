@@ -45,7 +45,7 @@ fn main() {
 
      
 
-    router.post("/users", middleware! { |_request, mut response|        
+    router.post("/create_get_album_url", middleware! { |_request, mut response|        
         
         let imgs = _request.json_as::<Images>().unwrap();
         print!("{} ", "\n Test get_page_access_token \n");
@@ -96,24 +96,6 @@ fn main() {
     });
 
 
-
-    router.post("/create_get_album_url", middleware! { |_request, mut response|        
-                
-        //let query = _request.query();
-
-        let mut data_result = "{\"data\":[".to_owned(); 
-        //data_result.push(format!("Query: {:?}", query));       
-        data_result.push_str("]}");
-
-        // Set the returned type as JSON
-        response.set(MediaType::Json);
-
-        // Send back the result
-        //format!("Query: {:?}", query)
-        format!("The FB Details JSON is: {:?}", json::encode(&data_result))
-
-    });
-    
 
     server.utilize(router);
     let _out = server.listen("127.0.0.1:9000");        
